@@ -5,6 +5,8 @@ import streamlit as st
 from streamlit.logger import get_logger
 
 logger = get_logger(__name__)
+st.set_page_config(layout="wide", menu_items=None)
+
 
 st.title("Llama-v2 Chat Demo with Message History")
 st.markdown("Built by Mahesh")

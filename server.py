@@ -7,7 +7,7 @@ from streamlit.logger import get_logger
 logger = get_logger(__name__)
 
 st.title("Llama-v2 Chat Demo with Message History")
-st.markdown("Built by Mahesh M")
+st.markdown("Built by Mahesh")
 os.environ["REPLICATE_API_TOKEN"] = "r8_3clbgC4BaY6LalFxGULXFCkO10D3pOo0u5orQ"
 llama_family = {
     "Llama7B-v2-Chat": "a16z-infra/llama7b-v2-chat:4f0a4744c7295c024a1de15e1a63c880d3da035fa1f49bfd344fe076074c8eea",
@@ -27,12 +27,11 @@ with st.sidebar:
     max_tokens = st.slider("Max Length in Number of Tokens", 10, 500, 100, help="Maximum number of tokens to generate. A word is generally 2-3 tokens")
     top_p = st.slider("Top P", 0.01, 1.0, 0.2, help="When decoding text, samples from the top p percentage of most likely tokens; lower to ignore less likely tokens")
 
-st.sidebar.markdown("---")
-
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
+st.sidebar.markdown("---")
 
 def get_message_history():
     for message in st.session_state.messages:
